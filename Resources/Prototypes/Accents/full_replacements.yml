@@ -183,3 +183,15 @@
   - accent-words-tomato-3
   - accent-words-tomato-4
   - accent-words-tomato-5
+
+- type: accent
+  id: legallydistinctspaceferret
+  fullReplacements:
+  - accent-words-legallydistinctspaceferret-1
+  - accent-words-legallydistinctspaceferret-2
+  - accent-words-legallydistinctspaceferret-3
+  - accent-words-legallydistinctspaceferret-4
+  - accent-words-legallydistinctspaceferret-5
+  - accent-words-legallydistinctspaceferret-6
+  - accent-words-legallydistinctspaceferret-7
+  - accent-words-legallydistinctspaceferret-8

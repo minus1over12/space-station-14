@@ -131,3 +131,13 @@ accent-words-tomato-2 = Trotect
 accent-words-tomato-3 = Mastet?
 accent-words-tomato-4 = Reaty!
 accent-words-tomato-5 = Water...
+
+# Legally Distinct Space Ferret
+accent-words-legallydistinctspaceferret-1 = Wa!
+accent-words-legallydistinctspaceferret-2 = Wa?
+accent-words-legallydistinctspaceferret-3 = Wa.
+accent-words-legallydistinctspaceferret-4 = Wa...
+accent-words-legallydistinctspaceferret-5 = Wawa!
+accent-words-legallydistinctspaceferret-6 = Wawa?
+accent-words-legallydistinctspaceferret-7 = Wawa.
+accent-words-legallydistinctspaceferret-8 = Wawa...
