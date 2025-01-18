@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  id: MobHonkmotherBase
+  name: Honkmother
+  description: Your mind begins to feel funny as it tries to honk.
+  components:
+  - type: Sprite
+    sprite: Mobs/Demons/honkmother.rsi
+    drawdepth: Ghosts
+    scale: 2.0,2.0
+    layers:
+    - state: honkmother
+      shader: unshaded
+    overrideContainerOcclusion: true # Always show up regardless of where they're contained.
+
+# spawn animation, spawns actual honkmother when it ends
+- type: entity
+  parent: MobHonkmotherBase
+  id: MobHonkmotherSpawn
+  suffix: Spawn
+  components:
+  - type: Sprite
+    layers:
+    - state: spawn
+      shader: unshaded
+  # spawn animation lasts 3 seconds
+  - type: TimedDespawn
+    lifetime: 3
+  - type: SpawnOnDespawn
+    prototype: MobHonkmother
+
+- type: entity
+  parent: [MobHonkmotherBase, MobGodBase]
+  id: MobHonkmother
+  categories: [ HideSpawnMenu ] # use the animation spawners
+  components:
+  - type: WarpPoint
+    follow: true
+    location: Honkmother
+  - type: Clumsy
+  - type: SleepEmitSound
+    snore: /Audio/Voice/Misc/silly_snore.ogg
+    interval: 10
+  - type: Speech
+    speechVerb: Cluwne

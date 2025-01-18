@@ -11,6 +11,7 @@
     layers:
     - state: ratvar
       shader: unshaded
+    overrideContainerOcclusion: true # Always show up regardless of where they're contained.
 
 - type: entity
   parent: MobRatvarBase
@@ -27,8 +28,9 @@
     prototype: MobRatvar
 
 - type: entity
-  parent: [MobRatvarBase, BaseMob]
+  parent: [MobRatvarBase, MobGodBase]
   id: MobRatvar
+  categories: [ HideSpawnMenu ] # use the animation spawners
   components:
   - type: AnnounceOnSpawn
     message: ratvar-has-risen
@@ -36,59 +38,23 @@
     sound:
       path: /Audio/Misc/ratvar_reveal.ogg
     color: "#BE8700"
-  - type: CargoSellBlacklist
-  - type: ContentEye
-    maxZoom: 2.0,2.0
-  - type: Fixtures
-    fixtures:
-      EventHorizonCollider:
-        shape:
-          !type:PhysShapeCircle
-            radius: 5
-        hard: false
-        restitution: 0.8
-        density: 1
-        mask:
-        - SingularityLayer
-        layer:
-        - SingularityLayer
-      EventHorizonConsumer:
-        shape:
-          !type:PhysShapeCircle
-            radius: 5
-        hard: false
-        mask:
-        - SingularityLayer
-        layer:
-        - SingularityLayer
-  - type: Input
-    context: "ghost"
-  - type: MovementIgnoreGravity
-  - type: IntrinsicRadioReceiver
-  - type: ActiveRadio
-    channels:
-    - Binary
-    - Common
-    - Command
-    - CentCom
-    - Engineering
-    - Medical
-    - Science
-    - Security
-    - Service
-    - Supply
-    - Syndicate
-    globalReceive: true
-  - type: Physics
-    bodyType: Dynamic
-    bodyStatus: InAir
-  - type: CanMoveInAir
-  - type: EventHorizon
-    radius: 5
-    canBreachContainment: true
-  - type: GravityWell
-    baseRadialAcceleration: 6
-    maxRange: 8
   - type: WarpPoint
     follow: true
     location: Ratvar
+  - type: RatvarianLanguage
+  # The sprite shoots lighting, this makes it hurt more.
+  - type: LightningArcShooter
+    arcDepth: 2
+    maxLightningArc: 80 # execute a high pop server in one blow
+    shootMinInterval: 1
+    shootMaxInterval: 2
+    shootRange: 7
+    lightningPrototype: HyperchargedLightning
+  - type: Electrified
+    requirePower: false
+  - type: ChasingWalk
+    minSpeed: 100
+    maxSpeed: 200
+    chasingComponent:
+    - type: LightningTarget
+    maxChaseRadius: 50
