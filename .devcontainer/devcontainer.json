@@ -1,0 +1,9 @@
+{
+    "name": "Space Station 14",
+    "image": "registry.gitlab.steamos.cloud/steamrt/sniper/sdk:latest",
+    "customizations": {
+        "jetbrains": {
+            "backend": "Rider"
+        }
+    },
+}
